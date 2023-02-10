@@ -60,10 +60,13 @@ namespace OgeApp.TaskProcessing
                         currentTask.PictureId = AddPictureAndGetId(jsonDict["PictureLink"]);
                     }
 
-                    _eFDBContext.Add(currentTask);
-                    topic.TaskNumber += 1;
-                    _eFDBContext.Update(topic);
-                    _eFDBContext.SaveChanges();
+                    if (!_eFDBContext.Tasks.Where(task => task.Name == currentTask.Name).Any())
+                    {
+                        _eFDBContext.Add(currentTask);
+                        topic.TaskNumber += 1;
+                        _eFDBContext.Update(topic);
+                        _eFDBContext.SaveChanges();
+                    }
                 }
             }
         }

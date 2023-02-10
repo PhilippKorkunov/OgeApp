@@ -51,7 +51,7 @@ namespace OgeApp
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //eFDBContext.Database.EnsureDeleted();
+            eFDBContext.Database.EnsureDeleted();
             eFDBContext.Database.EnsureCreated();
 
             eFDBContext.Pictures.Load();

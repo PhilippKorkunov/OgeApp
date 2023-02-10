@@ -1,4 +1,6 @@
-﻿namespace OgeApp.Entyties
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace OgeApp.Entyties
 {
     public class Topic
     {
